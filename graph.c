@@ -41,8 +41,9 @@ void insertEdge(Graph* graph, int src, int dest)
     graph->array[dest].head = newNode;*/
 }
 
-// Printing the graph. USUALLY FOR TESTING PURPOSES
-void printGraph(Graph* graph)
+// Printing the graph. CREATED FOR TESTING PURPOSES
+//-------------------- TEST-------------------------
+/*void printGraph(Graph* graph)
 {
     int v;
     for (v = 0; v < graph->vertex; ++v)
@@ -56,4 +57,5 @@ void printGraph(Graph* graph)
         }
         printf("\n");
     }
-}
+}*/
+//-----------------------TEST------------------------
