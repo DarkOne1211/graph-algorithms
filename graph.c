@@ -36,14 +36,32 @@ void insertEdge(Graph* graph, int src, int dest)
     graph->array[src].head = newNode;
 
     // UNCOMMENT IF YOU WANT THE GRAPH TO BE UNDIRECTIONAL
-    /*newNode = newAdjListNode(src);
+    newNode = newAdjListNode(src);
     newNode->next = graph->array[dest].head;
-    graph->array[dest].head = newNode;*/
+    graph->array[dest].head = newNode;
+}
+
+
+void freeGraph(Graph* freeGraph)
+{
+    int vertex = 0;
+    for(vertex = 0; vertex < freeGraph->vertex; vertex++)
+    {
+        while(freeGraph->array[vertex].head != NULL)
+        {
+            AdjListNode* temp = freeGraph->array[vertex].head;
+            freeGraph->array[vertex].head = temp->next;
+            free(temp);
+        }
+    }
+    free(freeGraph->array);
+    free(freeGraph);
+
 }
 
 // Printing the graph. CREATED FOR TESTING PURPOSES
 //-------------------- TEST-------------------------
-/*void printGraph(Graph* graph)
+void printGraph(Graph* graph)
 {
     int v;
     for (v = 0; v < graph->vertex; ++v)
@@ -57,5 +75,5 @@ void insertEdge(Graph* graph, int src, int dest)
         }
         printf("\n");
     }
-}*/
+}
 //-----------------------TEST------------------------
